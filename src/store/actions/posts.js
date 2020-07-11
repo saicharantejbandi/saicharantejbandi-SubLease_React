@@ -30,14 +30,15 @@ export const fetchPostsFail = (error) =>{
 export const fetchPosts = () =>{
     return dispatch => {
         dispatch(fetchPostsStart())
-        const queryparams= '?auth='
+        //const queryparams= '?auth='
         axios.get('https://react-my-burger-4ff3d.firebaseio.com/posts.json')
         .then( response => {
-          
+            
             const fetchedposts=[];
             for (let key in response.data){
+                
                 fetchedposts.push({
-                    ...response.data[key],
+                    ...response.data[key].postData,
                     id:key})
             }
             const updatedPosts = fetchedposts.map( post => {

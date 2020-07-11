@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
+* {
+  margin: 0;
+  padding: 100;
+}
+
+body {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2044837-jpeg.jpg") center center no-repeat;
+    background-size: cover;
+    
+    display: grid;
+    align-items: center;
+   
+    font-size: 12pt;
+    font-family: "Spartan";
+    color: #2A293E;
+  }
+  
+  .contact {
+    background: #f8f4e5;
+  }
+
+.Input {
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+.Label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 180px;
+}
+
+.InputElement {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color:#f8f4e5;
+    font: inherit;
+    padding: 6px 10px;
+    display: block;
+    width: 10%;
+    box-sizing: border-box;
+}
+
+.InputElement:focus {
+    outline: none;
+    background-color: #ccc;
+}
+
+.Invalid {
+    border: 1px solid red;
+    background-color: #FDA49A;
+}
+
+em {
+    color: #f45702;
+    font-weight: bold;
+  }

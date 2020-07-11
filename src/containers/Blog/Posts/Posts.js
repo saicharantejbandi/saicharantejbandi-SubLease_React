@@ -8,6 +8,7 @@ import Spinner from '../../../components/UI/Toolbar/Spinner/Spinner'
 import Post from '../../../components/Post/Post';
 import './Posts.css';
 import FullPost from '../FullPost/FullPost';
+import firebase from 'firebase';
 
 class Posts extends Component {
     state = {
@@ -24,6 +25,7 @@ class Posts extends Component {
     }
 
     render () {
+    console.log(firebase.auth().currentUser);
     let posts=null;
     if(this.props.loading){
         posts=<Spinner/>
@@ -36,17 +38,29 @@ class Posts extends Component {
                     
                     <Post
                         key={post.id}
-                        title={post.title}
-                        author={post.author}
-                        details={post.content}
+                        title={post.aptType+','+post.roomslease+' rooms'}
+                        aptType={post.aptType}
+                        email={post.email}
+                        pets={post.pets}
+                        smoking={post.smoking}
+                        street={post.street}
+                        zipCode={post.zipCode}
+                        price={post.price}
+                        moveIn={post.moveinDate}
+                        moveOut={post.moveoutDate}
+                        city={post.country}
+                        author={post.name}
+                        rooms={post.roomslease}
+                        urls={post.urls}
+                        
                         /* clicked={() => this.postSelectedHandler( post.id )} */ />
                 );
             } );
         }}
 
-        return (
-            <div>
-                <section className="Posts">
+        return ( 
+            <div  style={{alignItems:'center'}}>
+                <section className="Posts" style={{display:'flex', alignItems:'center'}}>
                     
                     {posts}
                 </section>

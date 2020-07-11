@@ -6,6 +6,22 @@ export const authStart = () =>{
     };
 };
 
+
+
+export const fb_logout = () =>{
+    return {
+        type:actionTypes.FB_LOGOUT
+    }
+}
+
+export const fb_auth_change = (user) =>{
+    return{
+        type:actionTypes.FB_AUTH_CHANGE,
+        user:user
+    }
+}
+
+
 export const authSuccess = (token, userId) =>{
     
     return{
@@ -25,7 +41,9 @@ export const authFail = (error) =>{
 export const logout = ()=>{
     localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
-    localStorage.removeItem('useerID');
+    localStorage.removeItem('userID');
+    localStorage.removeItem('userName');
+    
     return{
         type:actionTypes.AUTH_LOGOUT,
 
@@ -57,11 +75,11 @@ export const auth = (email,password, isSignUp) =>{
         
         axios.post(url ,authData)
         .then(response =>{
-            console.log(response);
+            
             const expirationDate = new Date (new Date().getTime() + response.data.expiresIn*1000)
             localStorage.setItem('token',response.data.idToken);
             localStorage.setItem('expirationDate',expirationDate);
-            localStorage.setItem('useerID',response.data.localId);
+            localStorage.setItem('userID',response.data.localId);
             
             
             dispatch(authSuccess(response.data.idToken, response.data.localId));

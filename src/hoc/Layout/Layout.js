@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
+// import axios from 'axios';           
 import { NavLink} from 'react-router-dom';
-
+import firebase from 'firebase';
 import classes from './Layout.css'
 import {connect} from 'react-redux'
 import * as actions from '../../store/actions/index';
@@ -14,22 +14,38 @@ class Layout extends Component {
          this.props.onLogout();
      }
 
-    render ()
-     
-     {
-        console.log(this.props);
-         let login =null;
-         //let newPost=null;
-        if (this.props.isAuthenticated){
-            login =(<li><p  onClick ={this.logoutHandler}>Logout</p></li>)
+     signOut = ()=>{
+        firebase.auth().signOut().then(function() {
+          console.log('Signed Out');
+        }, function(error) {
+          console.error('Sign Out Error', error);
+        });
+      }
+      
 
+    render (){
+        console.log(this.props.user, 'layout')
+         let login =null;
+         let name=null;
+         let auth=(<li>  <NavLink to={{
+            pathname: '/fbauth',
+           
+        }}>Login </NavLink></li>);
+
+        if ( this.props.user){
+            login =(<li><p  onClick ={ this.props.fbLogout }>Logout</p></li>)
+            if(this.props.userName){
+                name=<p>Hello, {this.props.userName}</p>
+            }
+            else{
+                name= <p>Hello, User</p>
+            }
         }
-        else{
-            login= (<li><NavLink to={{
-                pathname: '/auth',
-               
-            }}>Login/Sign Up</NavLink></li>)
+        if(name){
+            auth=<li>{name}</li>
         }
+
+
        
 
         return (
@@ -49,7 +65,9 @@ class Layout extends Component {
                                 pathname: '/new-post',
                                
                             }}>New Post</NavLink></li>
+
                             {login}
+                            {auth}
 
                         </ul>
                     </nav>
@@ -64,17 +82,16 @@ class Layout extends Component {
 
 const mapStateToProps = state =>{
     return{
-        /* loading:state.auth.loading,
-        error:state.auth.error, */
         isAuthenticated:state.auth.token,
-        //buildingBurger:state.burgerBuilder.building,
-       /*  authRedirect:state.auth.authRedirectpath */
+        user:state.auth.user,
+        userName:state.auth.userName
     }
 }
 
 const mapDispatchToProps = dispatch =>{
     return {
         onLogout:() => dispatch(actions.logout()),
+        fbLogout:()=>dispatch(actions.fb_logout())
     }
 }
 
