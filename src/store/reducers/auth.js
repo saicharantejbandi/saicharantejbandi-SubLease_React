@@ -9,8 +9,15 @@ const initialState = {
     authRedirectpath:'/',
     user:localStorage.getItem('user'),
     emailVerified:localStorage.getItem('emailVerified'),
-    uid:localStorage.getItem('uid')
+    uid:localStorage.getItem('uid'),
+    current:'/posts'
 };
+
+
+const updateUrl = (state ,action)=>{
+    return updateObject(state, {current:action.current})
+}
+
 
 
 const fb_logout = (state,action) => {
@@ -72,6 +79,7 @@ const reducer = (state=initialState , action )=>{
         case actionTypes.SET_AUTH_REDIRECT_PATH:return setAuthRedirectPath(state,action);
         case actionTypes.FB_AUTH_CHANGE:return fb_auth_change(state,action);
         case actionTypes.FB_LOGOUT:return fb_logout(state,action);
+        case actionTypes.UPDATE_URL:return updateUrl(state, action);
         default :
         return state;
     }

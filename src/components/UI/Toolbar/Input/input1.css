@@ -1,0 +1,55 @@
+
+ @use postcss-preset-env {
+    stage: 0
+  }
+
+.new{
+   
+      
+   
+        min-height: 100vh;
+        display: grid;
+        align-items: center;
+   
+}
+  form {
+    
+
+    flex-wrap: wrap
+  }
+  
+  
+  
+  label {
+    
+    font-weight: bold;
+    display: block;
+    margin-bottom: 100px;
+}
+  
+  input {
+    border: none;
+    background: hsl(0, 0%, 93%);
+    border-radius: .25rem;
+    padding: .75rem 1rem
+  }
+  select{
+    border: none;
+    background: hsl(0, 0%, 93%);
+    border-radius: .25rem;
+    padding: .75rem 1rem
+  }
+
+  textarea{
+    border: none;
+    background: hsl(0, 0%, 93%);
+    border-radius: .25rem;
+    padding: .75rem 1rem
+  }
+  
+  
+  
+  
+  
+  
+  

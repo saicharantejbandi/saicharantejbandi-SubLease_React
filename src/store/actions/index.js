@@ -9,7 +9,8 @@ export {
    setAuthRedirectPath,
    authCheckState,
    fb_auth_change,
-   fb_logout
+   fb_logout,
+   updateUrl
 } from './auth';
 
 export {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import {Redirect} from 'react-router-dom';
 import Button from '../../../components/UI/Toolbar/Button/Button';
 import Spinner from '../../../components/UI/Toolbar/Spinner/Spinner';
 import classes from './NewPost.css';
@@ -226,6 +226,7 @@ class NewPost extends Component {
     }
     componentDidMount () {
         // If unauth => this.props.history.replace('/posts');
+        this.props.updateUrl('/new-post')
         console.log( this.props );
         if (firebase.auth().currentUser){
             this.setState({loggedin:true})
@@ -341,10 +342,10 @@ class NewPost extends Component {
         
         }
         let form =(<h>Please Login to Post</h>) ;
-        console.log(this.props.emailVerified);
+        
 
         if (this.props.emailVerified){
-            console.log(this.props.emailVerified)
+            
             const formElementsArray = [];
             for (let key in this.state.orderForm) {
             formElementsArray.push({
@@ -411,7 +412,8 @@ const mapStateToProps = state =>{
 const mapDispacthToProps = dispatch =>{
 
 return{
-    onPost:(post, token) => dispatch(actions.newPost(post, token))
+    onPost:(post, token) => dispatch(actions.newPost(post, token)),
+    updateUrl:(current) => dispatch(actions.updateUrl(current))
 }}
 
 

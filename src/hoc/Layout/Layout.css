@@ -16,8 +16,20 @@
     color: black;
 }
 
-.Blog a:hover,
-.Blog a:active,
-.Blog a.active {
-    color: #fa923f;
+.Blog a:active{
+    color:#fa923f;
+    text-decoration: underline;
 }
+.Blog a.active{
+    color:#fa923f;
+    text-decoration: underline;
+}
+
+
+.Blog a:hover 
+{
+    color: #fa923f;
+    text-decoration: underline;
+}
+
+

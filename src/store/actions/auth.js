@@ -7,6 +7,12 @@ export const authStart = () =>{
 };
 
 
+export const updateUrl = (current) =>{
+    return {
+        type:actionTypes.UPDATE_URL,
+        current:current
+    }
+}
 
 export const fb_logout = () =>{
     return {

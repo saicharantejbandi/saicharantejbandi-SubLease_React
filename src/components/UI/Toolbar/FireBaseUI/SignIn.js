@@ -4,6 +4,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import * as actions from '../../../../store/actions/index';
 import 'firebase/auth' 
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 class SignIn extends Component {
     state={
         isSignedIn:false
@@ -47,9 +48,11 @@ class SignIn extends Component {
           console.error('Sign Out Error', error);
         });
       }
-
+    
     render(){
+      let redirect =null;
     let ver =null
+
     if (this.state.isSignedIn){
       if (!firebase.auth().currentUser.emailVerified){
         let user = firebase.auth().currentUser;
@@ -64,6 +67,7 @@ class SignIn extends Component {
       if(firebase.auth().currentUser.emailVerified){
       ver=<p>Verified User</p>
       }
+      redirect = <Redirect to={this.props.redirect}/>
 
     }
     
@@ -79,16 +83,23 @@ class SignIn extends Component {
                     </div>
                 :
                 <div>
-                <p>Not signed In</p>
+              
                 <StyledFirebaseAuth
                 uiConfig={this.uiConfig}
                 firebaseAuth={firebase.auth()}
               />
               </div>
                 }
+             {redirect}   
             </div>
         )
     }
+}
+
+const mapStateToProps =   state =>{
+  return {
+    redirect:state.auth.current
+  }
 }
 
  const mapDispatchToProps = dispatch =>{
@@ -98,4 +109,4 @@ class SignIn extends Component {
 }
 
 
-export default connect(null, mapDispatchToProps)( SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)( SignIn);

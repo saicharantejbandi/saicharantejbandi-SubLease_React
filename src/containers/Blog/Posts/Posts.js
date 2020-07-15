@@ -8,7 +8,7 @@ import Spinner from '../../../components/UI/Toolbar/Spinner/Spinner'
 import Post from '../../../components/Post/Post';
 import './Posts.css';
 import FullPost from '../FullPost/FullPost';
-import firebase from 'firebase';
+
 
 class Posts extends Component {
     state = {
@@ -17,6 +17,7 @@ class Posts extends Component {
 
     componentDidMount () {
         this.props.fetchPosts();
+        this.props.updateUrl('/myposts');
     }
 
     postSelectedHandler = ( id ) => {
@@ -25,7 +26,7 @@ class Posts extends Component {
     }
 
     render () {
-    console.log(firebase.auth().currentUser);
+   
     let posts=null;
     if(this.props.loading){
         posts=<Spinner/>
@@ -51,7 +52,7 @@ class Posts extends Component {
                         city={post.country}
                         author={post.name}
                         rooms={post.roomslease}
-                        urls={post.urls}
+                        //  urls={post.urls}
                         
                         /* clicked={() => this.postSelectedHandler( post.id )} */ />
                 );
@@ -60,7 +61,7 @@ class Posts extends Component {
 
         return ( 
             <div  style={{alignItems:'center'}}>
-                <section className="Posts" style={{display:'flex', alignItems:'center'}}>
+                <section className="Posts" style={{display:'flex', alignItems:'center', flexFlow:'row wrap'}}>
                     
                     {posts}
                 </section>
@@ -80,7 +81,8 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps = dispatch =>{
     return{
-        fetchPosts:()=> dispatch(actions.fetchPosts())
+        fetchPosts:()=> dispatch(actions.fetchPosts()),
+        updateUrl:(current) =>dispatch(actions.updateUrl(current))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps) (Posts);

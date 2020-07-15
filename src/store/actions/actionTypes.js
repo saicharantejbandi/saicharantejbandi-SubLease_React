@@ -18,3 +18,5 @@ export const NEWPOST_SUCCESS='NEWPOST_SUCCESS';
 
 export const FB_AUTH_CHANGE='FB_AUTH_CHANGE';
 export const FB_LOGOUT = 'FB_LOGOUT';
+
+export const UPDATE_URL ='UPDATE_URL';
