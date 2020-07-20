@@ -8,6 +8,7 @@ import Spinner from '../../../components/UI/Toolbar/Spinner/Spinner'
 import Post from '../../../components/Post/Post';
 import './Posts.css';
 import FullPost from '../FullPost/FullPost';
+import Modal from '../../../components/UI/Modal/Modal';
 
 
 class Posts extends Component {
@@ -18,6 +19,7 @@ class Posts extends Component {
     componentDidMount () {
         this.props.fetchPosts();
         this.props.updateUrl('/myposts');
+        console.log(this.props.posts)
     }
 
     postSelectedHandler = ( id ) => {
@@ -26,6 +28,7 @@ class Posts extends Component {
     }
 
     render () {
+       
    
     let posts=null;
     if(this.props.loading){
@@ -39,7 +42,7 @@ class Posts extends Component {
                     
                     <Post
                         key={post.id}
-                        title={post.aptType+','+post.roomslease+' rooms'}
+                        title={Number(post.roomslease)>1?post.aptType+','+post.roomslease+' rooms':post.aptType+','+post.roomslease+' room'}
                         aptType={post.aptType}
                         email={post.email}
                         pets={post.pets}
@@ -52,6 +55,8 @@ class Posts extends Component {
                         city={post.country}
                         author={post.name}
                         rooms={post.roomslease}
+                        images={post.urls}
+                       
                         //  urls={post.urls}
                         
                         /* clicked={() => this.postSelectedHandler( post.id )} */ />
@@ -64,6 +69,7 @@ class Posts extends Component {
                 <section className="Posts" style={{display:'flex', alignItems:'center', flexFlow:'row wrap'}}>
                     
                     {posts}
+                    
                 </section>
                 <Route path={this.props.match.url + '/:id'} exact component={FullPost} />
             </div>

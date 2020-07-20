@@ -68,8 +68,9 @@ class MyPosts extends Component {
 
         return(
             <div>
+                <section className="Posts" style={{display:'flex', alignItems:'center', flexFlow:'row wrap'}}>
                 {posts}
-
+                </section>
             </div>
         );
     }

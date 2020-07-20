@@ -86,7 +86,7 @@ class Layout extends Component {
                                 
                                 activeStyle={{color:"#fa923f",
                                     textDecoration: "underline"}}
-                                >Posts</NavLink></li>
+                                >Posts</NavLink></li>       
                             <li><NavLink 
                             to='/new-post'
                             activeStyle={{color:"#fa923f",

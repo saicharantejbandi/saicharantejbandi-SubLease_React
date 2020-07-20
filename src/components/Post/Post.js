@@ -1,33 +1,56 @@
 import React, {Component} from 'react';
 
 import classes from "./Post.css";
+import Modal from '../UI/Modal/Modal';
+import Gallery from '../UI/Gallery/Gallery';
 
 class Post extends Component   {
     
+    state={
+        view:false,
 
+    }
+     buttonhandler=()=>{
+        this.setState({
+            view:true
+        })
+     }
+
+     modalclik =()=>{
+        this.setState({
+            view:false
+        })
+     }
     render(){
-        
-    let Background = null;
         let images=null;
-        
-        if ( this.props.urls ) {
-            Background=this.props.urls[0];
-            console.log(Background);
-            images = this.props.urls.map( url => {
-                return (
-                    <img
-                        key={url}
-                        src={url}
-                        alt={'firebAse'}
-                        
-                        />
-                );
-            } );}
+        let gallery=null
+        if(this.props.images){
+            if (this.state.view){
+                gallery= <Gallery images={this.props.images ? this.props.images[0] : ['null']}/>
+            }
+            else{
+                gallery=null;
+            }
+            images=(
+                <div>
+                    <button onClick={this.buttonhandler} >Images</button>
+                    <Modal show={this.state.view} modalClosed={this.modalclik} >
+                       {gallery} 
+                       
+               
+            </Modal>
+                </div>
+            )
+        }
+        else{
+            images=<p>No Images</p>
+        }
+    
         
 
 
  return(
-    <article className={classes.Post} onClick={this.props.clicked} style={{backgroundImage: `url(${Background})`}}  >
+    <article className={classes.Post} onClick={this.props.clicked}  >
 
         <h1>{this.props.title}</h1>
 
@@ -44,6 +67,10 @@ class Post extends Component   {
             <p><span role="img" aria-label="email">📧</span> :{this.props.email}</p>
             <p><span role="img" aria-label="address">🏠</span>:{this.props.street+', '+this.props.city+', '+this.props.zipCode}</p>
             {images}
+                
+                    
+                
+               
            
         </div>
     </article>

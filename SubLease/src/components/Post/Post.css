@@ -1,0 +1,29 @@
+.Post {
+    width: 250px;
+    height: 450px;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #eee;
+    -webkit-transition: background .6s ease;
+    transition: background .6s ease;
+    -webkit-box-shadow: 0 10px 10px #ccc;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 20px 20px 20px 20px;
+}
+
+.Post:hover,
+.Post:active {
+    background-color: #387c7c;
+}
+
+.Author {
+    font-size: small;
+    margin: 16px 0;
+    color: #ccc;
+}

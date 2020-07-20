@@ -1,0 +1,14 @@
+.Gallery{
+    width: 100%;
+    height: 400px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Button{
+height: 20px;
+ width: 75px;
+margin-left: 10px;
+margin-right: 10px;}

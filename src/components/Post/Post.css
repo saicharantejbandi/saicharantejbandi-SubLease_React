@@ -1,6 +1,6 @@
 .Post {
     width: 250px;
-    height: 450px;
+    height: 350px;
     padding: 20px 20px 20px 20px;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
     padding: 16px;
@@ -17,8 +17,7 @@
     padding: 20px 20px 20px 20px;
 }
 
-.Post:hover,
-.Post:active {
+.Post:hover {
     background-color: #387c7c;
 }
 

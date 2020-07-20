@@ -341,7 +341,7 @@ class NewPost extends Component {
             error=<p>{this.props.error +','+ this.state.ierror}</p>
         
         }
-        let form =(<h>Please Login to Post</h>) ;
+        let form =(<h>Please <a href='fbauth'>Login</a> to Post</h>) ;
         
 
         if (this.props.emailVerified){
@@ -355,8 +355,9 @@ class NewPost extends Component {
             }
             form = (
                 <div>
+                      <h4>Enter your Contact Data</h4>
                 {!this.state.urls ? <p>Please upload room images</p>: <p>uploaded</p>}
-                    <input type ='file' onChange = {this.handleChange} />
+                    <input type ='file' onChange = {this.handleChange} multiple  accept="image/x-png,image/gif,image/jpeg"/>
                     <button disabled={!this.state.images} onClick={this.handleUpload}  >Upload</button> 
                 <form onSubmit={this.postHanndler}>
                     {error}
@@ -387,7 +388,7 @@ class NewPost extends Component {
         }
         return (
             <div className={classes.NewPost} style={{width:'50%'}}>
-                <h4>Enter your Contact Data</h4>
+              
                 
                 {form}
                 

@@ -71,7 +71,7 @@ class SignIn extends Component {
 
     }
     
-        return (
+        return (      
             <div>
               {ver}
                 {this.state.isSignedIn ? 
@@ -85,7 +85,7 @@ class SignIn extends Component {
                 <div>
               
                 <StyledFirebaseAuth
-                uiConfig={this.uiConfig}
+                uiConfig={this.uiConfig}      
                 firebaseAuth={firebase.auth()}
               />
               </div>

@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
+* {
+  margin: 0;
+  padding: 100;
+}
+
+
+/* body {
+    background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/38816/image-from-rawpixel-id-2044837-jpeg.jpg") center center no-repeat;
+    background-size: cover;
+    
+    display: grid;
+    align-items: center;
+   
+    font-size: 12pt;
+    font-family: "Spartan";
+    color: #2A293E;
+  } */
+
+  /* .new {
+    background-image: url('https://source.unsplash.com/G8rRItjrwkA') ;
+    position: absolute;
+    background-attachment: fixed;
+    width: 100%;
+
+    height: 100%;
+    background-color: #cccccc;
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+  } */
+/* .NewPost {
+      
+    
+    width: 100%;
+    margin: 10px auto;
+    background: #4f797c;
+    padding: 10px 100px;
+    border-top: 10px solid #f45702;
+    box-shadow: 0 2px 3px rgb(212, 95, 95);
+
+    text-align: center;
+}
+
+
+
+.NewPost label {
+    display: flex;
+    margin: 40px auto;
+    text-align: left;
+    font-weight: bold;
+    display: flex;
+  
+}
+
+.NewPost input,
+.NewPost textarea,
+.NewPost select {
+    display: flex;
+  width: 250%;
+  font-size: 12pt;
+  line-height: 24pt;
+  font-family: "Spartan";
+} */
+
+.NewPost button {
+    /* display: -webkit-box;
+    display: flex;
+    height: 5vh; */
+    /* -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-flow: column; */
+    margin: 5px 0;
+    padding: 25px;
+    font: inherit;
+    border: 1px solid #525352;
+    background: #818181;
+    color: #a1425f;
+    cursor: pointer;
+    width: 100px;
+}
+
+.NewPost button:hover{
+    color: rgb(95, 95, 95);
+      
+     
+    
+}
+.NewPost button:active {
+    color: rgb(219, 31, 31);
+    background-color: #351a66;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .NewPost {
+    width: 80%;
+    margin: 20px auto;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    text-align: center;
+}
+
+.NewPost label {
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+    font-weight: bold;
+}
+
+.NewPost input,
+.NewPost textarea,
+.NewPost select {
+    display: block;
+    width: 80%;
+    box-sizing: border-box;
+    border: 1px solid black;
+    outline: none;
+    font: inherit;
+    margin: auto;
+}
+
+.NewPost button {
+    margin: 5px 0;
+    padding: 10px;
+    font: inherit;
+    border: 1px solid #fa923f;
+    background-color: transparent;
+    color: #fa923f;
+    cursor: pointer;
+}
+
+.NewPost button:hover,
+.NewPost button:active {
+    color: white;
+    background-color: #fa923f;
+} */
