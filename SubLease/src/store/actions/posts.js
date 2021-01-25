@@ -31,7 +31,7 @@ export const fetchPosts = () =>{
     return dispatch => {
         dispatch(fetchPostsStart())
         //const queryparams= '?auth='
-        axios.get('https://react-my-burger-4ff3d.firebaseio.com/posts.json')
+        axios.get('')
         .then( response => {
             
             const fetchedposts=[];
