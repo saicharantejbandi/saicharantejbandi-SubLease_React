@@ -27,7 +27,7 @@ export const newPost= (post, token,image) =>{
     return dispatch =>{
         dispatch(newPostStart());
         
-        axios.post('https://react-my-burger-4ff3d.firebaseio.com/posts.json', post)
+        axios.post('', post)
         .then(responce => {
             dispatch(newPostSuccess());
         })
