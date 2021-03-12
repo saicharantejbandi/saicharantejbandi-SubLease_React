@@ -40,7 +40,7 @@
     "react": "^16.13.1",
     "react-awesome-lightbox": "^1.7.3",
     "react-bnb-gallery": "^1.4.4",
-    "react-dev-utils": "^4.2.3",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.13.1",
     "react-firebaseui": "^4.1.0",
     "react-images": "^1.1.7",
